@@ -4,20 +4,20 @@ body {
     line-height: 1.5;
     color: antiquewhite;
     background-color: black;
+    margin: 0;
 }
 .main {
-    position: relative;
-    overflow-x: hidden;
+   scroll-behavior: smooth;
 }
 
 .home {
     background-image: url(../images/image/banner.jpg);
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    
     width: auto;
     height: 510px;
-    position: relative;
+    
     padding: 50px 0px;
 }
 
@@ -33,7 +33,6 @@ body {
 
 .home button {
     appearance: button;
-    -webkit-writing-mode: horizontal-tb !important;
     text-rendering: auto;
     color: -internal-light-dark(black, white);
     letter-spacing: normal;
@@ -62,15 +61,13 @@ body {
 }
 
 .menu {
-    position: absolute;
+
 }
 
 .container {
-    width: auto;
-    height: 200px;
+    
 }
 .map {
-    width: 50%;
-    height: 100%;
+    
   }
  
