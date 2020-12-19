@@ -4,37 +4,228 @@
         <title>Autoservisy</title>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <meta name="MobileOptimized" content="320">
-
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/2.2.1/mdb.min.css" rel="stylesheet"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xRpfn37_32UZQPe_7WLIUwoJdp6Ao5M&callback=initAutocomplete&libraries=places&v=weekly"
+          src="https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=car_repair"
+          defer
+        ></script>
+        <script
+            type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/2.2.1/mdb.min.js"
+        ></script>
         <link rel="stylesheet" href="css style/style.css">
+    
     </head>
 
     <body>
-       <div class="main">
-           <div class="home">
-               <h1>Vyhľadávanie autoservisov</h1>
-                <button class="button" ><a name="map">Vyhľadať miesta</a></button>
-           </div>
-         
-
-            <div class="menu">
-                <div class="container">
-                    <div id="map" class="googlemp">
-                        <h2>Mapy</h2>
-                        <p>preco 
-                            mi 
-                         to
-                        nefunguje
-                        </p>
-                    </div>
-                </div>
-            
+    
+        <!--Navbar-->
+        <nav id="home" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./images/logo/logo.jpg" class="logo" alt="logo">search car service
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#search">Hľadať</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#map">Mapa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Kontakt</a>
+                </li>    
+               
             </div>
-        </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i style='font-size: 20px' class='fab'>&#xf082;</i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i style='font-size:20px' class='fab'>&#xf099;</i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i style='font-size:20px' class='fab'>&#xf16d;</i></a>
+                    </li>
+                    
+                </ul>
+            </div>
+            </div>
+        </nav>
+        <!--End Navbar-->
 
+        <!--Search section-->
+        <section >
+            <div class="container">
+                <div class="row">
+                    <div id="search" class="search-box">
+                        <h1>Vyhľadávanie autoservisov</h1>
+                            <div class="container-s d-flex justify-content-center">
+                              <div class="input-group col-sm-7 input-group-lg">
+                                  <div class="input-group-prepend">
+                                    
+                                    <span class="input-group-text google">
+                                       <img src="./images/logo/google.png" alt=""> 
+                                    </span>  
+                                  </div>
+                                  <form action="#map" class="input-group-mg" method="get" autocomplete="on">
+                                  <input id="pac-input" type="search" class="form-control">
+                                  </form>    
+                                  <div class="input-group-append">
+                                     <span class="input-group-text microphone">
+                                         <img src="./images/logo/microphone.png" alt="">
+                                     </span> 
+                                  </div>
+                                  <div id="infowindow-content">
+                                    <span id="place-name" class="title"></span><br />
+                                        <strong></strong> <span id="place-id"></span><br />
+                                    <span id="place-address"></span>
+                                  </div>
+                                        
+                              </div>
+                            </div>
+                    </div>
 
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBW3lgIkb5Tov79Q-7uGyymW3VJh2luN-4&callback=initMap&libraries=&v=weekly" defer></script>
+                </div>
+            </div>
+        </section>
+        <!--End Search section-->
+
+        <!--Place section-->
+        <section id="map-s">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div id="map" class="map-box" ></div>                        
+                </div>
+            </div>
+        </section>
+        <!--End Place section-->
+
+        <!-- Footer -->
+        <section id="contact-s">
+            <footer id="contact" class="page-footer font-small mdb-color pt-4 bg-dark text-white ">
+
+                <!-- Footer Links -->
+                <div class="container text-center text-md-left">
+    
+                    <!-- Footer links -->
+                    <div class="row text-center text-md-left mt-3 pb-3">
+    
+                        <!-- Grid column -->
+                        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                            <h6 class="text-uppercase mb-4 font-weight-bold text-white">Navigačné linky</h6>
+                                <p>
+                                    <a href="#search" class="text-white">Hľadať</a>
+                                </p>
+                                <p>
+                                    <a href="#map" class="text-white">Mapa</a>
+                                </p>
+                                <p>
+                                    <a href="#contact" class="text-white">Kontakt</a>
+                                </p>
+                        </div>
+                        <!-- Grid column -->
+                        <hr class="w-100 clearfix d-md-none">
+    
+                        <!-- Grid column -->
+    
+                        <hr class="w-100 clearfix d-md-none">
+    
+                        <!-- Grid column -->
+                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                            
+                        </div>
+    
+                        <!-- Grid column -->
+                            <hr class="w-100 clearfix d-md-none">
+    
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold text-white">Kontakt</h6>
+                    <p>
+                        <i class="fas fa-home mr-3 text-white"></i> Lučenec, Adyho 10, SK</p>
+                    <p>
+                        <i class="fas fa-envelope mr-3 text-white"></i> info@gmail.com</p>
+                    <p>
+                        <i class="fas fa-phone mr-3 text-white"></i> + 01 234 567 88</p>
+                    <p>
+                        <i class="fas fa-print mr-3 text-white"></i> + 01 234 567 89</p>
+                    </div>
+                    <!-- Grid column -->
+            
+                </div>
+                <!-- Footer links -->
+    
+                    <hr>
+    
+                    <!-- Grid row -->
+                    <div class="row d-flex align-items-center">
+                
+                        <!-- Grid column -->
+                        <div class="col-md-7 col-lg-8">
+                
+                        <!--Copyright-->
+                        <p class="text-center text-md-left">© 2020 Copyright:
+                            <strong> Marek Koska</strong>
+                            </a>
+                        </p>
+                
+                        </div>
+                        <!-- Grid column -->
+    
+                        <!-- Grid column -->
+                        <div class="col-md-5 col-lg-4 ml-lg-0">
+                
+                
+                            <div class="text-center text-md-right">
+                                <ul class="list-unstyled list-inline">
+                                    <li class="list-inline-item">
+                                        <a class="btn-floating btn-sm rgba-white-slight mx-1 ">
+                                        <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                        <i class="fab fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                        <i class="fab fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+    
+                        </div>
+                        <!-- Grid column -->
+    
+                    </div>
+                    <!-- Grid row -->
+    
+                </div>
+                <!-- Footer Links -->
+    
+            </footer>
+        </section>
+        <!-- Footer -->
+        
         <script src="./js/script.js"></script>
+        
     </body>
 
 </html>
